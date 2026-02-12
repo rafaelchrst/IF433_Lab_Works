@@ -5,7 +5,13 @@ fun main(){
     val price = 600000
 
     var finalPrice = calculateDiscount(price)
-    println(finalPrice)
+    printRecipe(title = gameTitle, finalPrice = finalPrice)
+
 }
 
 fun calculateDiscount(price:Int): Int = if (price > 500000) price - (price * 20/100) else price - (price * 10/100)
+fun printRecipe(title: String, finalPrice: Int) {
+    println("Struk Pembelian")
+    println("Game: $title")
+    println("Price: $finalPrice")
+}

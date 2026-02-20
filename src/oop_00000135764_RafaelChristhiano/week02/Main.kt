@@ -1,33 +1,23 @@
-package oop_135764_RafaelChristhiano.week02
+println("\n=== SISTEM PINJAM BUKU ===")
 
-import java.util.Scanner
+print("Masukkan Judul Buku: ")
+val title = scanner.nextLine()
 
-fun main() {
-    val scanner = Scanner(System.`in`)
+print("Masukkan Nama Peminjam: ")
+val borrower = scanner.nextLine()
 
-    println("Pilih Jalur Pendaftaran:")
-    println("1. Dengan Jurusan")
-    println("2. Tanpa Jurusan")
+print("Masukkan Lama Pinjam (hari): ")
+var duration = scanner.nextLine().toInt()
 
-    print("Pilihan: ")
-    val choice = scanner.nextLine().toInt()
-
-    print("Masukkan NIM: ")
-    val nim = scanner.nextLine()
-
-    print("Masukkan Nama: ")
-    val name = scanner.nextLine()
-
-    if (choice == 1) {
-        print("Masukkan Jurusan: ")
-        val major = scanner.nextLine()
-
-        val student = Student(nim, name, major)
-        println("Mahasiswa dibuat dengan jurusan.")
-    } else if (choice == 2) {
-        val student = Student(nim, name)
-        println("Mahasiswa dibuat tanpa jurusan.")
-    } else {
-        println("Pilihan tidak valid.")
-    }
+if (duration < 0) {
+    println("Durasi tidak boleh minus! Diubah menjadi 1 hari.")
+    duration = 1
 }
+
+val loan = Loan(title, borrower, duration)
+
+println("\nDetail Peminjaman:")
+println("Judul Buku: ${loan.bookTitle}")
+println("Peminjam: ${loan.borrower}")
+println("Durasi: ${loan.loanDuration} hari")
+println("Total Denda: Rp ${loan.calculateFine()}")

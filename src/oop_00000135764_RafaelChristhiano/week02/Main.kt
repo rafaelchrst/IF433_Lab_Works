@@ -1,23 +1,51 @@
-println("\n=== SISTEM PINJAM BUKU ===")
+println("\n=== MINI RPG BATTLE ===")
 
-print("Masukkan Judul Buku: ")
-val title = scanner.nextLine()
+print("Masukkan Nama Hero: ")
+val heroName = scanner.nextLine()
 
-print("Masukkan Nama Peminjam: ")
-val borrower = scanner.nextLine()
+print("Masukkan Base Damage Hero: ")
+val damage = scanner.nextLine().toInt()
 
-print("Masukkan Lama Pinjam (hari): ")
-var duration = scanner.nextLine().toInt()
+val hero = Hero(heroName, damage)
+var enemyHp = 100
 
-if (duration < 0) {
-    println("Durasi tidak boleh minus! Diubah menjadi 1 hari.")
-    duration = 1
+while (hero.isAlive() && enemyHp > 0) {
+
+    println("\n1. Serang")
+    println("2. Kabur")
+    print("Pilihan: ")
+
+    val choice = scanner.nextLine().toInt()
+
+    if (choice == 1) {
+        hero.attack("Musuh")
+        enemyHp -= hero.baseDamage
+
+        if (enemyHp < 0) enemyHp = 0
+
+        println("Sisa HP Musuh: $enemyHp")
+
+        if (enemyHp > 0) {
+            val enemyDamage = (10..20).random()
+            println("Musuh menyerang balik sebesar $enemyDamage!")
+            hero.takeDamage(enemyDamage)
+            println("Sisa HP Hero: ${hero.hp}")
+        }
+
+    } else if (choice == 2) {
+        println("Hero kabur dari pertarungan!")
+        break
+    } else {
+        println("Pilihan tidak valid.")
+    }
 }
 
-val loan = Loan(title, borrower, duration)
+println("\n=== HASIL PERTARUNGAN ===")
 
-println("\nDetail Peminjaman:")
-println("Judul Buku: ${loan.bookTitle}")
-println("Peminjam: ${loan.borrower}")
-println("Durasi: ${loan.loanDuration} hari")
-println("Total Denda: Rp ${loan.calculateFine()}")
+if (hero.isAlive() && enemyHp == 0) {
+    println("${hero.name} MENANG!")
+} else if (!hero.isAlive()) {
+    println("Musuh MENANG!")
+} else {
+    println("Pertarungan berakhir tanpa pemenang.")
+}

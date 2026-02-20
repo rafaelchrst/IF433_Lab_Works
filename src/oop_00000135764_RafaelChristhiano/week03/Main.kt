@@ -1,18 +1,13 @@
-package oop_00000135764_RafaelChristhiano.week03
+println("\n=== TEST WEAPON ===")
 
-fun main() {
+val sword = Weapon("Excalibur", 300)
 
-    val e = Employee("Rafael", 1000)
+println("Damage awal: ${sword.damage}")
+println("Tier awal: ${sword.tier}")
 
-    println("Nama: ${e.name}")
-    println("Salary awal: ${e.salary}")
+sword.damage = -50
 
-    e.salary = -500
+sword.damage = 9999
 
-    e.salary = 5000
-    println("Salary setelah update: ${e.salary}")
-
-    e.updateRating(4)
-
-    println("Bonus: ${e.bonus}")
-}
+println("Damage setelah update: ${sword.damage}")
+println("Tier sekarang: ${sword.tier}")

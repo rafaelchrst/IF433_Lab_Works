@@ -23,4 +23,7 @@ class Employee(
             println("Rating harus antara 1 sampai 5")
         }
     }
+
+    val bonus: Int
+        get() = salary / 10
 }

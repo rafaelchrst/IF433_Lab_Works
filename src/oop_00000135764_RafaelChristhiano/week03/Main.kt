@@ -1,13 +1,9 @@
-println("\n=== TEST WEAPON ===")
+println("\n=== TEST PLAYER ===")
 
-val sword = Weapon("Excalibur", 300)
+val player = Player("Rafael")
 
-println("Damage awal: ${sword.damage}")
-println("Tier awal: ${sword.tier}")
+player.addXp(50)
+println("Level sekarang: ${player.level}")
 
-sword.damage = -50
-
-sword.damage = 9999
-
-println("Damage setelah update: ${sword.damage}")
-println("Tier sekarang: ${sword.tier}")
+player.addXp(60)
+println("Level sekarang: ${player.level}")

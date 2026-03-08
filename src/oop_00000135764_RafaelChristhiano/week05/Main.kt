@@ -29,5 +29,16 @@ fun main() {
         println("Luas lingkaran: ${math.hitungLuas(3.0)}")
 
         println()
+
+        println("=== SISTEM PEMBAYARAN ===")
+
+        val wallet = EWallet("Rafael", 50000.0)
+        val card = CreditCard("Rafael", 100000.0)
+
+        val payments: List<PaymentMethod> = listOf(wallet, card)
+
+        for (method in payments) {
+            method.processPayment(75000.0)
+        }
     }
 }

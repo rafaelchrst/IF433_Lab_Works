@@ -1,8 +1,3 @@
-import oop_00000135764_RafaelChristhiano.week06.SmartCCTV
-import oop_00000135764_RafaelChristhiano.week06.SmartHomeHub
-import oop_00000135764_RafaelChristhiano.week06.SmartLamp
-import oop_00000135764_RafaelChristhiano.week06.SmartSpeaker
-
 fun processCheckout(method: PaymentMethod, amount: Double) {
     println("-> Memulai checkout...")
     method.pay(amount)

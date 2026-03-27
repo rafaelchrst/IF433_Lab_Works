@@ -21,6 +21,10 @@ fun main() {
         is Success -> "Tampilkan: ${response.data}"
         is Error -> "Munculkan alert: ${response.message}"
         is Loading -> "Tampilkan Spinner"
+
+        println("\n=== SIMULASI TUGAS RPG ===")
+                GameManager.startGame()
+                GameManager.startGame()
     }
     println(uiMessage)
 }

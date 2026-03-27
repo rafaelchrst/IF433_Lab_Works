@@ -1,4 +1,4 @@
-package oop_001_johnthor.week07
+package oop_00000135764_RafaelChristhiano.week07
 
 object GameManager {
     var isGameRunning: Boolean = false

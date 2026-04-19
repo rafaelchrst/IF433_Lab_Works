@@ -1,19 +1,19 @@
 package oop_00000135764_RafaelChristhiano.week01
 
-import java.util.scanner
+import java.util.Scanner
 
 fun main() {
-    val scanner = Scanner( source = system. `in`)
+    val scanner = Scanner(System.`in`)
 
     println("--- APLIKASI PMB UMN ---")
 
     print("Masukkan Nama: ")
-    val name = scanner.nextline()
+    val name = scanner.nextLine()
 
     print("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
 
-    scanner.nextLine()
+    scanner.nextLine() // clear buffer
 
     if (nim.length != 5) {
         println("ERROR: Pendaftaran dibatalkan. NIM harus 5 karakter!")
@@ -23,8 +23,5 @@ fun main() {
 
         val s1 = Student(name, nim, major)
         println("Status: Pendaftaran Selesai.")
-    }
-constructor(name: String, nim: String) : this(name, nim, major = "Non-Matriculated") {
-    println("LOG: Menggunakan constructor jalur umum(Tanpa Jurusan).")
     }
 }

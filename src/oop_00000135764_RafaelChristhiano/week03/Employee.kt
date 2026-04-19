@@ -2,10 +2,10 @@ package oop_00000135764_RafaelChristhiano.week03
 
 class Employee(
     val name: String,
-    salary: Int
+    salary: Double
 ) {
 
-    var salary: Int = salary
+    var salary: Double = salary
         set(value) {
             if (value < 0) {
                 println("Salary tidak boleh negatif!")
@@ -24,6 +24,6 @@ class Employee(
         }
     }
 
-    val bonus: Int
-        get() = salary / 10
+    val bonus: Double
+        get() = salary * 0.1
 }

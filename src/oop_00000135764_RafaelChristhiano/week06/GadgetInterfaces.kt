@@ -1,7 +1,13 @@
+package oop_00000135764_RafaelChristhiano.week06
+
 interface Camera {
-    fun turnOn() { println("Lensa kamera terbuka dan sensor aktif.") }
+    fun turnOn() {
+        println("Kamera menyala.")
+    }
 }
 
 interface Phone {
-    fun turnOn() { println("Sinyal seluler mencari jaringan.") }
+    fun turnOn() {
+        println("Telepon aktif.")
+    }
 }

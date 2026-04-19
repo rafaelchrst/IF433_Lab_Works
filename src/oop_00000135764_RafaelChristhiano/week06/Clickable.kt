@@ -1,5 +1,6 @@
-class Button(override val name: String) : Clickable {
-    override fun click() {
-        prinln("Tombol '$name' berhasil diklik!")
-    }
+package oop_00000135764_RafaelChristhiano.week06
+
+interface Clickable {
+    val name: String
+    fun click()
 }

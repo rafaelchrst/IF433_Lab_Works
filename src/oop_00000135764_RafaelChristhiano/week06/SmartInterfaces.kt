@@ -6,7 +6,7 @@ interface SmartDevice {
 }
 
 interface Switchable {
-    fun turn0n()
+    fun turnOn()
     fun turnOff()
 }
 
@@ -14,6 +14,6 @@ interface Recordable {
     fun startRecord()
 
     fun stopRecord() {
-        println)("Perekaman dihentikan dan disimpan ke Cloud.")
+        println("Perekaman dihentikan dan disimpan ke Cloud.")
     }
 }

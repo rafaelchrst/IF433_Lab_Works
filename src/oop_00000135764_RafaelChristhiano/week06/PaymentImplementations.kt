@@ -1,7 +1,13 @@
+package oop_00000135764_RafaelChristhiano.week06
+
 class Gopay : PaymentMethod {
-    override fun pay(amount: Double) { println("Processing Rp$amount via Gopay Server") }
+    override fun pay(amount: Double) {
+        println("Membayar Rp$amount menggunakan GoPay")
     }
+}
 
 class CreditCard : PaymentMethod {
-    override fun pay(amount: Double) { println("Contacting Bank for Rp$amount") }
+    override fun pay(amount: Double) {
+        println("Membayar Rp$amount menggunakan Credit Card")
+    }
 }

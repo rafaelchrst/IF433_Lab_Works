@@ -11,6 +11,7 @@ fun main() {
     emp.salary = -1000.0
     println("Salary setelah update: ${emp.salary}")
 
+    println("Bonus: ${emp.bonus}")
 
 
     println("\n=== TEST WEAPON ===")
@@ -25,7 +26,6 @@ fun main() {
 
     println("Damage setelah update: ${sword.damage}")
     println("Tier sekarang: ${sword.tier}")
-
 
 
     println("\n=== TEST PLAYER ===")

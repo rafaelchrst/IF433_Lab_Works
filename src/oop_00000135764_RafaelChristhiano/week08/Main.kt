@@ -34,4 +34,8 @@ fun main() {
         }
     }
 
+    val someObject: Any = 100
+    val safeString = someObject as? String?: "Unknown String"
+    println("Hasil cast + fallback: $safeString")
+
 }

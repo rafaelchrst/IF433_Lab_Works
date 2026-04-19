@@ -1,6 +1,7 @@
 package oop_00000135764_RafaelChristhiano.week08
 
 fun main() {
+
     println("=== TEST SAFE CALLS & ELVIS ===")
     val emptyOrder = Order(null, null)
 
@@ -35,22 +36,29 @@ fun main() {
     }
 
     val someObject: Any = 100
-    val safeString = someObject as? String?: "Unknown String"
+    val safeString = someObject as? String ?: "Unknown String"
     println("Hasil cast + fallback: $safeString")
 
     println("\n=== TEST THE RED BUTTON (!!) ===")
-    val apiResponse: Map<String, String?> = mapOf("status" to "200", "token" to null)
+
+    val apiResponse: Map<String, String?> = mapOf(
+        "status" to "200",
+        "token" to null
+    )
+
     try {
         val token = requireNotNull(apiResponse["token"]) {
             "CRITICAL EXCEPTION: Token otentikasi tidak ditemukan dari server!"
         }
-    } catch (e: NullPointerException) {
+    } catch (e: IllegalArgumentException) {
         println(e.message)
     }
 
     println("\n=== TEST JAVA INTEROP ===")
+
     val javaResponse = LegacyJavaAPI.fetchServerStatus()
     val statusLength = javaResponse!!.length
     println("Status dari Java: $javaResponse (Length: $statusLength)")
 
+    runMockUnitTest()
 }

@@ -15,7 +15,21 @@ fun main() {
     for (raw in rawApiData) {
 
         try {
+
             val product = parser.parseProduct(raw)
+            product?.let {
+
+                when (it) {
+                    is Product.Electronic -> {
+                        println("${it.name} (Warranty ${it.warrantyMonths})")
+                    }
+                    is Product.Clothing -> {
+                        println("${it.name} (Size ${it.size})")
+                    }
+                }
+
+                parser.checkout(it)
+            }
 
             product?.let {
                 parser.checkout(it)
@@ -25,4 +39,5 @@ fun main() {
             println("ERROR: ${e.message}")
         }
     }
+
 }

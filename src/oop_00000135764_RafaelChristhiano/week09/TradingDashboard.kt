@@ -38,4 +38,11 @@ fun main() {
         println(it)
     }
 
+    println("\n--- WORST PERFORMERS ---")
+    worstPerformersString.forEach {
+        println(it)
+    }
+
+    println("\n--- UNIQUE PAIRS ---")
+    println(uniquePairs)
 }

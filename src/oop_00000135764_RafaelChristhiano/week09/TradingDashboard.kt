@@ -11,14 +11,9 @@ fun main() {
         TradeLog("BTCUSDT", "LONG", 30, 20.0, "CLOSED")
     )
 
-    val closedTrades = tradeHistory
-        .filter { it.status == "CLOSED" }
-
-    val winningTrades = closedTrades
-        .filter { it.roe > 0 }
-
-    val losingTrades = closedTrades
-        .filter { it.roe <= 0 }
+    val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
+    val winningTrades = closedTrades.filter { it.roe > 0 }
+    val losingTrades = closedTrades.filter { it.roe <= 0 }
 
     val topPerformersString = winningTrades
         .sortedByDescending { it.roe }
@@ -31,5 +26,9 @@ fun main() {
         .map {
             "LOSS [${it.pair} - ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage}x)"
         }
+
+    val uniquePairs = tradeHistory
+        .map { it.pair }
+        .toSet()
 
 }

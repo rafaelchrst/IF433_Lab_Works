@@ -29,4 +29,7 @@ fun main() {
         println(it.diagnose())
     }
 
+    with(homeDevices) {
+        println("Ukuran list perangkat: ${this.size}")
+    }
 }

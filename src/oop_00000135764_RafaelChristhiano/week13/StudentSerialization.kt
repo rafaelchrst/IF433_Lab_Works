@@ -14,16 +14,30 @@ fun fromCsv(line: String): Student {
         age = parts[1].trim().toInt(),
         gpa = parts[2].trim().toDouble()
     )
-    fun saveStudents(students: List<Student>, path: String) {
-        File(path).writeText(students.joinToString(separator = "\n") { it.toCsv() })
-    }
+}
 
-    fun loadStudents(path: String): List<Student> {
-        return try {
-            File(path).readLines().map { fromCsv(it) }
-        } catch (e: FileNotFoundException) {
-            println("Error: File tidak ditemukan!")
-            emptyList()
-        }
+fun saveStudents(students: List<Student>, path: String) {
+    File(path).writeText(students.joinToString(separator = "\n") { it.toCsv() })
+}
+
+fun loadStudents(path: String): List<Student> {
+    return try {
+        File(path).readLines().map { fromCsv(it) }
+    } catch (e: FileNotFoundException) {
+        println("Error: File tidak ditemukan!")
+        emptyList()
     }
+}
+
+fun main() {
+    val students = listOf(
+        Student(name = "Alice", age = 20, gpa = 3.8),
+        Student(name = "Bob", age = 22, gpa = 3.5)
+    )
+
+    saveStudents(students, path = "students.csv")
+    val loaded = loadStudents(path = "students.csv")
+
+    println("=== LOADED STUDENT DATA ===")
+    loaded.forEach { println(it) }
 }

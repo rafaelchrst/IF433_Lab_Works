@@ -7,3 +7,4 @@ class FoodEmptyException(requested: Int, available: Int) :
 
 class DispenserJamException :
     FeederException("Wadah dispenser tersangkut/macet!")
+

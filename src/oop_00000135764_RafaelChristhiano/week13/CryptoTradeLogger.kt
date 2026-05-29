@@ -53,4 +53,6 @@ fun main() {
     saveTrades(mockTrades, "crypto_trades.csv")
 
     File("crypto_trades.csv").appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
+    val loadedTrades = loadTrades("crypto_trades.csv")
+    val netPnl = loadedTrades.sumOf { it.pnl }
 }

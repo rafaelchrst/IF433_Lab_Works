@@ -55,4 +55,7 @@ fun main() {
     File("crypto_trades.csv").appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
     val loadedTrades = loadTrades("crypto_trades.csv")
     val netPnl = loadedTrades.sumOf { it.pnl }
+
+    println("=== SYSTEM TRADING AGGREGATION ===")
+    println("Total Net PnL: $netPnl")
 }
